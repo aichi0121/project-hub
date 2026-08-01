@@ -172,6 +172,7 @@ export default function Home() {
       <header className="topbar">
         <a className="brand" href="#top" aria-label="Project Hub 首頁"><span><Icon name="grid" /></span><b>Project Hub</b></a>
         <div className="top-actions">
+          <a className="header-github" href="https://github.com/aichi0121" target="_blank" rel="noreferrer"><Icon name="github"/>GitHub</a>
           <button className="sync-button native-manage" onClick={() => setEditorOpen(true)}><span className="plus">＋</span>管理網站</button>
         </div>
       </header>
