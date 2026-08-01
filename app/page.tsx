@@ -171,22 +171,14 @@ export default function Home() {
     <main>
       <header className="topbar">
         <a className="brand" href="#top" aria-label="Project Hub 首頁"><span><Icon name="grid" /></span><b>Project Hub</b></a>
-        <nav className="main-nav" aria-label="主要導覽">
-          <a className="active" href="#top">首頁</a>
-          <a href="#projects">作品入口</a>
-          <a href="https://github.com/aichi0121" target="_blank" rel="noreferrer">GitHub</a>
-        </nav>
         <div className="top-actions">
-          <span className="private-pill"><i/>私人工作台</span>
           <button className="sync-button native-manage" onClick={() => setEditorOpen(true)}><span className="plus">＋</span>管理網站</button>
-          <a className="avatar" href="https://github.com/aichi0121" target="_blank" rel="noreferrer" aria-label="開啟 aichi0121 的 GitHub">A</a>
         </div>
       </header>
 
       <section className="shell" id="top">
         <div className="intro">
-          <div className="hero-copy"><p className="eyebrow">✦ PERSONAL PROJECT PORTFOLIO</p><h1>你的作品，<br/><span>都在這裡。</span></h1><p>集中管理常用網站與本機工具，想用的時候，一眼就能找到。</p></div>
-          <div className="stats"><span><b>{projects.length-hiddenIds.length}</b><small>目前顯示</small></span><i/><span><b>{projects.filter(p=>p.site&&!hiddenIds.includes(p.id)).length}</b><small>線上網站</small></span><i/><span><b>{projects.filter(p=>!p.site&&!hiddenIds.includes(p.id)).length}</b><small>本機工具</small></span></div>
+          <div className="hero-copy"><h1>你的作品，<span>都在這裡。</span></h1><p>常用網站與工具，一眼找到、直接開啟。</p></div>
         </div>
 
         <div className="projects-heading" id="projects"><div><h2>我的網站</h2><p>點一下卡片，直接前往網站</p></div><button className="text-manage" onClick={() => setEditorOpen(true)}>管理顯示項目</button></div>
