@@ -203,7 +203,7 @@ export default function Home() {
           </article>)}
         </section> : <div className="empty"><b>找不到相符的專案</b><p>換個關鍵字，或清除目前的分類。</p><button onClick={() => {setQuery(""); setFilter("全部");}}>顯示全部</button></div>}
       </section>
-      <footer><span>Project Hub</span><p>專為 aichi0121 整理的私人入口</p><a href="https://github.com/aichi0121" target="_blank" rel="noreferrer"><Icon name="github" />GitHub</a></footer>
+      <footer><span>Project Hub</span><p>專為 aichi0121 整理的網站入口</p></footer>
 
       {editorOpen && <div className="manager-backdrop" role="presentation" onMouseDown={e => {if(e.target===e.currentTarget)setEditorOpen(false)}}>
         <section className="manager-modal" role="dialog" aria-modal="true" aria-labelledby="manager-title">
