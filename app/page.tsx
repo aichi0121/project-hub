@@ -24,7 +24,7 @@ const defaultProjects: Project[] = [
     category: "生活",
     language: "HTML",
     repo: "https://github.com/aichi0121/mingli-paipan",
-    site: "https://mingli-paipan.vercel.app",
+    site: "https://aichi0121.github.io/mingli-paipan/",
     preview: "mingli",
   },
   {
@@ -111,7 +111,9 @@ export default function Home() {
       setFavorites(JSON.parse(localStorage.getItem("project-hub-favorites") || "[]"));
       setHiddenIds(JSON.parse(localStorage.getItem("project-hub-hidden") || "[]"));
       const custom = JSON.parse(localStorage.getItem("project-hub-custom") || "[]");
-      if (Array.isArray(custom)) setProjects([...defaultProjects, ...custom]);
+      const overrides = JSON.parse(localStorage.getItem("project-hub-overrides") || "{}");
+      const defaults = defaultProjects.map(project => overrides[project.id] ? { ...project, ...(project.site ? { site: overrides[project.id] } : { repo: overrides[project.id] }) } : project);
+      if (Array.isArray(custom)) setProjects([...defaults, ...custom]);
     } catch {}
   }, []);
 
@@ -152,6 +154,17 @@ export default function Home() {
     const next = projects.filter(p => p.id !== id);
     setProjects(next);
     localStorage.setItem("project-hub-custom", JSON.stringify(next.filter(p => p.id.startsWith("custom-"))));
+  };
+
+  const updateProjectUrl = (id: string, value: string) => {
+    const next = projects.map(project => project.id === id ? { ...project, ...(project.site ? { site: value } : { repo: value }) } : project);
+    setProjects(next);
+    if (id.startsWith("custom-")) {
+      localStorage.setItem("project-hub-custom", JSON.stringify(next.filter(p => p.id.startsWith("custom-"))));
+    } else {
+      const overrides = Object.fromEntries(next.filter(p => !p.id.startsWith("custom-")).map(p => [p.id, p.site || p.repo]));
+      localStorage.setItem("project-hub-overrides", JSON.stringify(overrides));
+    }
   };
 
   return (
@@ -203,7 +216,7 @@ export default function Home() {
         <section className="manager-modal" role="dialog" aria-modal="true" aria-labelledby="manager-title">
           <header className="manager-header"><div><h2 id="manager-title">管理網站</h2><p>選擇首頁要顯示的項目，或新增其他網站。</p></div><button className="close-manager" onClick={() => setEditorOpen(false)} aria-label="關閉管理網站">×</button></header>
           <div className="manager-body">
-            <section className="manager-section"><h3>首頁顯示</h3><div className="manager-list">{projects.map(project => {const shown=!hiddenIds.includes(project.id);return <div className="manager-row" key={project.id}><div className="manager-icon">{project.chinese.slice(0,1)}</div><div><b>{project.chinese}</b><small>{project.site || project.repo}</small></div>{project.id.startsWith("custom-") && <button className="remove-site" onClick={() => removeCustom(project.id)}>移除</button>}<button className={shown ? "visibility-toggle on" : "visibility-toggle"} role="switch" aria-checked={shown} onClick={() => setProjectVisible(project.id,!shown)} aria-label={`顯示${project.chinese}`}><i/></button></div>})}</div></section>
+            <section className="manager-section"><h3>首頁顯示與網址</h3><div className="manager-list">{projects.map(project => {const shown=!hiddenIds.includes(project.id);return <div className="manager-row" key={project.id}><div className="manager-icon">{project.chinese.slice(0,1)}</div><div><b>{project.chinese}</b><input className="manager-url-input" aria-label={`${project.chinese}網址`} value={project.site || project.repo} onChange={e => updateProjectUrl(project.id,e.target.value)}/></div>{project.id.startsWith("custom-") && <button className="remove-site" onClick={() => removeCustom(project.id)}>移除</button>}<button className={shown ? "visibility-toggle on" : "visibility-toggle"} role="switch" aria-checked={shown} onClick={() => setProjectVisible(project.id,!shown)} aria-label={`顯示${project.chinese}`}><i/></button></div>})}</div></section>
             <section className="manager-section add-section"><h3>新增網站</h3><p>填入名稱與網址，新增後會保存在這台裝置。</p><div className="add-fields"><label className="native-field"><span>網站名稱</span><input placeholder="例如：我的筆記" value={draftName} onChange={e => setDraftName(e.target.value)}/></label><label className="native-field"><span>網站網址</span><input inputMode="url" placeholder="https://example.com" value={draftUrl} onChange={e => setDraftUrl(e.target.value)}/></label><button className="add-site-button native-action" onClick={addProject} disabled={!draftName.trim()||!draftUrl.trim()}>新增</button></div></section>
           </div>
           <footer className="manager-footer"><span className="storage-note">目前設定只儲存在此瀏覽器</span><button className="done-button native-action" onClick={() => setEditorOpen(false)}>完成</button></footer>
