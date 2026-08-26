@@ -12,10 +12,21 @@ type Project = {
   repo: string;
   site?: string;
   privacy?: "Private" | "Public";
-  preview: "mingli" | "courses" | "vault" | "subtitle" | "subscope" | "custom";
+  preview: "mingli" | "courses" | "vault" | "subtitle" | "subscope" | "custom" | "ppa";
 };
 
 const defaultProjects: Project[] = [
+  {
+    id: "ppa-transcript-exporter",
+    title: "PPA Transcript Exporter",
+    chinese: "課程下載方式",
+    description: "PressPlay 課程逐字稿匯出器：收集 VTT、逐檔下載或一次下載 ZIP。",
+    category: "工具",
+    language: "Chrome 擴充功能",
+    repo: "https://github.com/aichi0121/project-hub",
+    site: "https://aichi0121.github.io/project-hub/course-download/",
+    preview: "ppa",
+  },
   {
     id: "mingli-paipan",
     title: "Mingli Paipan",
@@ -93,6 +104,7 @@ function ProductPreview({ type }: { type: Project["preview"] }) {
   if (type === "vault") return <div className="product-preview vault-preview"><div className="vault-sidebar"><b>PS</b><i/><i/><i/><i/></div><div className="vault-main"><div className="fake-search">⌕ 搜尋腳本...</div><div className="script"><span>PDF</span><div><b>批次合併 PDF</b><small>檔案處理 · 2 min</small></div><em>Run</em></div><div className="script"><span>TXT</span><div><b>字幕格式清理</b><small>文字工具 · 1 min</small></div><em>Run</em></div><div className="code-line"/></div></div>;
   if (type === "subtitle") return <div className="product-preview subtitle-preview"><div className="mini-top"><span>時軸工房</span><i>本機模式</i></div><div className="drop-zone"><b>影片 ＋ VTT</b><small>已配對 · course-07.mp4</small></div><div className="timeline"><i/><i/><i/><i/><i/></div><div className="sync-progress"><span><b>語音定位率</b><small>97.9%</small></span><i><b style={{width:"88%"}}/></i></div></div>;
   if (type === "subscope") return <div className="product-preview subscope-preview"><div className="mini-top"><span>本月訂閱</span><i>8 月</i></div><strong className="money">NT$ 2,460<small>／月</small></strong><div className="sub-chart"><i style={{height:"42%"}}/><i style={{height:"58%"}}/><i style={{height:"48%"}}/><i style={{height:"78%"}}/><i style={{height:"64%"}}/><i style={{height:"86%"}}/><i style={{height:"72%"}}/></div><div className="renewal"><span className="service-dot">N</span><div><b>下次續費</b><small>8 月 07 日</small></div><strong>NT$ 390</strong></div></div>;
+  if (type === "ppa") return <div className="product-preview ppa-preview"><div className="mini-top"><span>PPA 逐字稿匯出器</span><i>VTT</i></div><div className="ppa-window"><div className="ppa-course">AI 時代軟體必修課</div><div className="ppa-row"><b>01</b><span>1-1 軟體抽象與 AI 開發整合</span><em>完成</em></div><div className="ppa-row"><b>02</b><span>1-2 用 AI 打造記帳 App</span><em>完成</em></div><div className="ppa-row"><b>03</b><span>1-3 Google AI Studio</span><em>收集中</em></div></div></div>;
   return <div className="product-preview custom-preview"><div className="custom-browser"><i/><i/><i/><span>https://</span></div><div className="custom-window"><span><Icon name="grid"/></span><b>我的新網站</b><small>自訂網站入口</small></div></div>;
 }
 
