@@ -1,11 +1,11 @@
 import Link from "next/link";
 
-const download = "/downloads/ppa-transcript-exporter-v1.3.3.zip";
+const download = "../downloads/ppa-transcript-exporter-v1.3.3.zip";
 
 export default function CourseDownloadPage() {
   return <main className="guide-page">
     <header className="guide-header"><Link href="/" className="guide-back">← Project Hub</Link><span>課程下載方式</span></header>
-    <section className="guide-hero"><p className="eyebrow">PRESSPLAY · 字幕下載</p><h1>把課程逐字稿，<br/>整理成可用的 VTT。</h1><p>新版 PPA 逐字稿匯出器可從 PressPlay 課程目錄收集字幕，完成後可單獨下載或一次打包成 ZIP。</p><div className="guide-actions"><a className="guide-primary" href={download} download>下載擴充功能 ZIP</a><a className="guide-secondary" href="/downloads/PPA-逐字稿匯出器-README.md" download>下載 README</a></div><small>版本 1.3.3 · 僅處理你帳號原本可觀看的課程內容</small></section>
+    <section className="guide-hero"><p className="eyebrow">PRESSPLAY · 字幕下載</p><h1>把課程逐字稿，<br/>整理成可用的 VTT。</h1><p>新版 PPA 逐字稿匯出器可從 PressPlay 課程目錄收集字幕，完成後可單獨下載或一次打包成 ZIP。</p><div className="guide-actions"><a className="guide-primary" href={download} download>下載擴充功能 ZIP</a><a className="guide-secondary" href="../downloads/PPA-逐字稿匯出器-README.md" download>下載 README</a></div><small>版本 1.3.3 · 僅處理你帳號原本可觀看的課程內容</small></section>
     <section className="guide-shell">
       <div className="guide-note"><b>這是新版流程</b><span>不需要開發者工具、不需要複製 TXT，也不必逐一跳出儲存視窗。</span></div>
       <ol className="guide-steps">
