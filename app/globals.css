@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./link-actions.css";
 
 :root{--ink:#191a17;--muted:#73756e;--line:#e4e4dc;--paper:#f4f3ed;--card:#fbfbf7;--accent:#d95f44;--green:#263d34;--font-noto:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei","Segoe UI",sans-serif;--font-jakarta:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif}
 *{box-sizing:border-box}
