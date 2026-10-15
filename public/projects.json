@@ -22,7 +22,7 @@
         "url": "https://github.com/aichi0121/course-download-guide"
       }
     ],
-    "preview": "custom"
+    "preview": "courseguide"
   },
   {
     "id": "course-download-methods",
@@ -47,7 +47,7 @@
         "url": "./course-download/ppa/"
       }
     ],
-    "preview": "custom"
+    "preview": "downloadguide"
   },
   {
     "id": "nexus-knowledge-library",
@@ -68,7 +68,7 @@
         "url": "https://github.com/aichi0121/nexus-knowledge-library"
       }
     ],
-    "preview": "custom"
+    "preview": "nexus"
   },
   {
     "id": "mingli-paipan",
