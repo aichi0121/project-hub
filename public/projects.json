@@ -10,6 +10,10 @@
     "site": "https://aichi0121.github.io/course-download-guide/",
     "links": [
       {
+        "label": "本站指南",
+        "url": "./course-download/"
+      },
+      {
         "label": "公開頁",
         "url": "https://aichi0121.github.io/course-download-guide/"
       },
