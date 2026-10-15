@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import { CourseHeader, ExternalLink, links, PermissionNote, PlatformHero } from "../shared";
 
-export const metadata: Metadata = { title: "知識衛星｜課程下載方式", description: "知識衛星課程影片與字幕整理方式。" };
+export const metadata: Metadata = {
+  title: "知識衛星｜課程下載方式",
+  description: "知識衛星課程影片與字幕整理方式。",
+  openGraph: { title: "知識衛星｜課程下載方式", description: "知識衛星課程影片與字幕整理方式。", url: "https://aichi0121.github.io/project-hub/course-download/satellite/", type: "website", locale: "zh_TW" },
+  twitter: { card: "summary", title: "知識衛星｜課程下載方式", description: "知識衛星課程影片與字幕整理方式。" },
+};
 
 export default function SatellitePage() {
   return <main className="course-guide platform-page satellite-page"><CourseHeader active="satellite"/>

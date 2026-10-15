@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import { CourseHeader, ExternalLink, links, PermissionNote, PlatformHero } from "../shared";
 
-export const metadata: Metadata = { title: "Hahow｜課程下載方式", description: "Hahow 課程影片、字幕與操作示範。" };
+export const metadata: Metadata = {
+  title: "Hahow｜課程下載方式",
+  description: "Hahow 課程影片、字幕與操作示範。",
+  openGraph: { title: "Hahow｜課程下載方式", description: "Hahow 課程影片、字幕與操作示範。", url: "https://aichi0121.github.io/project-hub/course-download/hahow/", type: "website", locale: "zh_TW" },
+  twitter: { card: "summary", title: "Hahow｜課程下載方式", description: "Hahow 課程影片、字幕與操作示範。" },
+};
 
 export default function HahowPage() {
   return <main className="course-guide platform-page hahow-page"><CourseHeader active="hahow"/>

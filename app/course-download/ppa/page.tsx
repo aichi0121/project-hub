@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import { CourseHeader, ExternalLink, links, PermissionNote, PlatformHero } from "../shared";
 
-export const metadata: Metadata = { title: "PressPlay Academy｜課程下載方式", description: "PressPlay Academy 課程影片、字幕與操作示範。" };
+export const metadata: Metadata = {
+  title: "PressPlay Academy｜課程下載方式",
+  description: "PressPlay Academy 課程影片、字幕與操作示範。",
+  openGraph: { title: "PressPlay Academy｜課程下載方式", description: "PressPlay Academy 課程影片、字幕與操作示範。", url: "https://aichi0121.github.io/project-hub/course-download/ppa/", type: "website", locale: "zh_TW" },
+  twitter: { card: "summary", title: "PressPlay Academy｜課程下載方式", description: "PressPlay Academy 課程影片、字幕與操作示範。" },
+};
 
 export default function PpaPage() {
   return <main className="course-guide platform-page ppa-page"><CourseHeader active="ppa"/>

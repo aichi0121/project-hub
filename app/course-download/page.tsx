@@ -4,6 +4,21 @@ import { CourseHeader, PermissionNote } from "./shared";
 export const metadata: Metadata = {
   title: "課程下載方式｜Project Hub",
   description: "依課程網站分開整理知識衛星、Hahow 與 PressPlay Academy 的影片與字幕下載方式。",
+  openGraph: {
+    title: "課程下載方式",
+    description: "知識衛星、Hahow、PressPlay Academy 的影片與字幕整理指南。",
+    url: "https://aichi0121.github.io/project-hub/course-download/",
+    siteName: "課程下載方式",
+    type: "website",
+    locale: "zh_TW",
+    images: [{ url: "https://aichi0121.github.io/project-hub/og.png", width: 1200, height: 630, alt: "課程下載方式" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "課程下載方式",
+    description: "知識衛星、Hahow、PressPlay Academy 的影片與字幕整理指南。",
+    images: ["https://aichi0121.github.io/project-hub/og.png"],
+  },
 };
 
 const platforms = [
