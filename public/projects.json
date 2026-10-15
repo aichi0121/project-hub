@@ -10,10 +10,6 @@
     "site": "https://aichi0121.github.io/course-download-guide/",
     "links": [
       {
-        "label": "本站指南",
-        "url": "./course-download/"
-      },
-      {
         "label": "公開頁",
         "url": "https://aichi0121.github.io/course-download-guide/"
       },
@@ -24,6 +20,31 @@
       {
         "label": "GitHub",
         "url": "https://github.com/aichi0121/course-download-guide"
+      }
+    ],
+    "preview": "custom"
+  },
+  {
+    "id": "course-download-methods",
+    "title": "Course Download Methods",
+    "chinese": "課程下載方式",
+    "description": "依平台分頁整理影片、字幕、工具與教學示範。",
+    "category": "學習",
+    "language": "Project Hub",
+    "repo": "https://github.com/aichi0121/project-hub",
+    "site": "./course-download/",
+    "links": [
+      {
+        "label": "知識衛星",
+        "url": "./course-download/satellite/"
+      },
+      {
+        "label": "Hahow",
+        "url": "./course-download/hahow/"
+      },
+      {
+        "label": "PPA",
+        "url": "./course-download/ppa/"
       }
     ],
     "preview": "custom"
